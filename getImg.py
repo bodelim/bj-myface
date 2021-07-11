@@ -85,4 +85,4 @@ def crawl(keywords):
     driver.close()
 
 
-crawl("bj짭구")
+crawl("공혁준")
