@@ -6,13 +6,14 @@
             <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-distance">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">나의 상판때기</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +49,24 @@
               </div>
             </div>
           </nav>
+
+          <div class="modal" tabindex="-1" id="join_popup">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">나의 상판때기</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>이미지 학습 모델을 선택해주세요</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="join_popup_choice_click()">선택</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <div>Teachable Machine Image Model</div>
         <button type="button" onclick="init()">학습모델적용</button>
 		<button type="button" onclick="predict()">닮음체크</button>
@@ -89,7 +108,7 @@
         <div id="webcam-container"></div>
         <div id="label-container"></div>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
         <script type="text/javascript">
             // More API functions here:
             // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
@@ -123,7 +142,7 @@
             async function predict() {
                 // predict can take in an image, video or canvas html element
                 const prediction = await model.predict(image, false);
-                for (let i = 0; i < maxPredictions; i++) {
+                for (let i = 0; i < maxPredictions; i++) {  
                     const classPrediction =
                         prediction[i].className + ': ' + prediction[i].probability.toFixed(2) * 100 + "%";
                     labelContainer.childNodes[i].innerHTML = classPrediction;
@@ -131,6 +150,14 @@
             }
         </script>
 		<script>
+
+jQuery(document).ready(function() {
+                $('#join_popup').show();
+        });
+        function join_popup_choice_click(flag) {
+             $('#join_popup').hide();
+        };
+
 		function readURL(input) {
   if (input.files && input.files[0]) {
 

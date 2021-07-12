@@ -119,3 +119,7 @@ body {
   border: 0;
   transition: all .2s ease;
 }
+
+.navbar-distance {
+  padding: 2% 2%
+}
