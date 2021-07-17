@@ -1,7 +1,7 @@
 var express = require('express'); // 웹서버 사용 .
 var app = express();
 var fs = require('fs'); // 파일 로드 사용.
-port = 4000
+port = 3001
 
 // 포트 설정
 app.listen(port, function () {
