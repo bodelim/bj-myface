@@ -11,9 +11,8 @@ console.log('비제이닮은꼴 서버가 시작되었습니다.');
 app.use(express.static(__dirname+"/public"));
 
 // 라우팅 설정
-app.get('/', function (req, res) { // 웹서버 기본주소로 접속 할 경우 실행 . ( 현재 설정은 localhost 에 3303 port 사용 : 127.0.0.1:3303 )
-
-fs.readFile('index.html', function (error, data) { // index.html 파일 로드 
+app.get('/', function (req, res) { 
+fs.readFile('./index.html', function (error, data) {
     console.log("서버트래픽 발생.");
 if (error) {
 console.log(error);

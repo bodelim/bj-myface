@@ -16,7 +16,7 @@ body {
 .file-upload {
   background-color: #ffffff;
   width: 320px;
-  padding: 5% 0 0 0;
+  padding-top: 40px;
   margin: 0 auto;
 }
 
@@ -180,4 +180,60 @@ body {
 #label-container {
   font-family: 'Jua';
   margin-top: 10px;
+}
+
+.remove-image {
+  margin-top: 10px;
+}
+
+/*서버 점검창 관련 css*/
+.servercheck-discription {
+  font-family: 'Jua';
+  font-size: 30px;
+  text-align: center;
+  margin-top: 100px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.info {
+  font-size: small;
+  color: #4949493f;
+}
+
+.modal_wrap{
+  display: none;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin: -250px 0 0 -250px;
+  background:#eee;
+  z-index: 2;
+}
+.black_bg{
+  display: none;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0,0, 0.5);
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+.modal_close{
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+.modal_close> a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background:url(https://img.icons8.com/metro/26/000000/close-window.png);
+  text-indent: -9999px;
 }
