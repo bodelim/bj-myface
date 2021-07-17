@@ -1,3 +1,8 @@
+@font-face {
+  src: url("./font/Jua.ttf");
+  font-family: "Jua";
+}
+
 .title {
 	font-weight: bold;
 	font-size: 30px;
@@ -10,9 +15,9 @@ body {
 
 .file-upload {
   background-color: #ffffff;
-  width: 600px;
+  width: 320px;
+  padding: 5% 0 0 0;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .file-upload-btn {
@@ -58,17 +63,15 @@ body {
   cursor: pointer;
 }
 
+
 .image-upload-wrap {
-  margin-top: 20px;
-  border: 4px dashed #1FB264;
+  height: 270px;
+  width: 320px;
+  text-align: center;
   position: relative;
 }
 
 .image-dropping,
-.image-upload-wrap:hover {
-  background-color: #1FB264;
-  border: 4px dashed #ffffff;
-}
 
 .image-title-wrap {
   padding: 0 15px 15px 15px;
@@ -122,4 +125,55 @@ body {
 
 .navbar-distance {
   padding: 2% 2%
+}
+
+.imageRectangle {
+  object-fit: fill;
+}
+
+.imageBtn {
+  padding: 20px;
+}
+
+#join_popup {
+ height: 100%;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+ top: 70px;
+}
+@media (max-width: 768px) {
+ #join_popup {
+ height: 100%;
+ width: 90%;
+ }
+}
+
+#scanBtn {
+  width: 230px;
+  height: 50px;
+  margin: 20px;
+  border-color: #ffffff00;
+  border-radius: 50px;
+  background-color: #ff7878;
+  font-family: Jua;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.discription {
+ width: 100%;
+ height: 100%;
+ margin-top: 40%;
+ font-family: 'Jua';
+ font-size: 115%;
+ text-align: center;
+}
+
+#scanLoading {
+  margin-left: 50%;
+  margin-top: 10%;
+  position: relative;
 }
