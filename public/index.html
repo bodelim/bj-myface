@@ -11,6 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script>let bjname = "감스트";</script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
@@ -55,6 +56,26 @@
 
           <div class="info">Copyright(c) 2021 beomjun All rights reserved.</div>
 
+<!-- Modal -->
+<!--
+<div class="modal-dialog modal-sm" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">상판때기</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="modalHide()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        인공지능이 판단한 당신의 얼굴은 
+        <script>console.log(bjname)</script>
+        
+        <img src="" id="bjImageShow" class="bjImageShow">
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
           <!--
           <div class="modal" tabindex="-1" id="join_popup">
@@ -109,17 +130,24 @@
                 <img src="./imageBtn.svg" class="imageBtn">
             </div>
             <div class="file-upload-content">
+              당신이 올린 얼굴
+              <br>
                 <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+                <br>
+                <div id="bjImageShow-Title">사진과 닮은 비제이</div>
+                <img src="" id="bjImageShow" class="bjImageShow">
                 <div class="image-title-wrap">
-                    
-                    <img id='scanLoading' src="./loading.gif" width="100px" height="100px" display='none'>
                     <div id="label-container"></div>
+                    <img id='scanLoading' src="./loading.gif" width="100px" height="100px" display='none'>
                     <button type="button" onclick="clearResult() ; removeUpload()" class="remove-image">
                       사진 다시고르기
                   </button>
+                  <!--
                   <button type="button" class="scanBtn" id="scanBtn" onclick="loadingShow()">얼굴스캔!</button>
-                  </div>
+                  -->
+                </div>
               </div>
+              <!--<img id='scanLoading' src="./loading.gif" width="100px" height="100px" display='none'>-->
               
               <div class="discription">
                 당신이 올린 얼굴을 인공지능이 스캔하여 유사한 비제이의 얼굴을 보여줍니다!
@@ -128,6 +156,8 @@
               </div>
               <br>
               <br>
+
+              <!--카카오애드핏-->
               <ins class="kakao_ad_area" style="display:none;" 
  data-ad-unit    = "DAN-rlnpMEfNVG1BNjS1" 
  data-ad-width   = "320" 
@@ -138,16 +168,19 @@
         <div id="webcam-container"></div>
         
 
-
+        <!--초기에 보여져선 안되는 div들-->
         <script>$('#scanLoading').hide();</script>
+        <script>$('#imageModal').hide();</script>
+        <script>$('#bjImageShow').hide();</script>
+        <script>$('#bjImageShow-Title').hide;</script>
+
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 
 <script type="text/javascript">
-const URL = 'https://teachablemachine.withgoogle.com/models/uBvB7FWWL/';
+const URL = 'https://teachablemachine.withgoogle.com/models/RVjyIl6cR/';
 
-const _0x24db=['childNodes','createElement','onload','\x27짭\x27구','addClass','resize','innerHeight','label-container','.image-upload-wrap','당신이\x20올린\x20면상은\x20공혁준과\x20제일\x20닮았네요!','dragleave','사슴이','BJ파이','#scanLoading','appendChild','.image-title','removeClass','168129STlLCp','#label-container','metadata.json','div','ready','6Oeeqgn','신태일','sort','replaceWith','show','hide','model.json','documentElement','.file-upload-input','당신이\x20올린\x20면상은\x20짭구와\x20제일\x20닮았네요!','setProperty','--h','#join_popup','당신이\x20올린\x20면상은\x20신태일과\x20제일\x20닮았네요!','className','13357ntowji','1SBhvBQ','clone','face-image','load','target','당신이\x20올린\x20면상은\x20철구와\x20제일\x20닮았네요!','감스트','name','당신이\x20올린\x20면상은\x20사슴이와\x20제일\x20닮았네요!','image-dropping','당신이\x20올린\x20면상은\x20감스트와\x20제일\x20닮았네요!','378562ScVHIY','empty','files','당신이\x20올린\x20면상은\x20BJ파이와\x20제일\x20닮았네요!','22452vLHqYz','177167RHzxHf','#scanBtn','Hide','toFixed','predict','getElementById','708107YPbEOa','14293kuhcep','37jVjumR','log'];function _0x5570(_0x1f28c7,_0x3e508b){return _0x5570=function(_0x24db39,_0x557061){_0x24db39=_0x24db39-0x125;let _0x5e13f8=_0x24db[_0x24db39];return _0x5e13f8;},_0x5570(_0x1f28c7,_0x3e508b);}const _0xb6f996=_0x5570;(function(_0xfba334,_0x3b3819){const _0x4f77f5=_0x5570;while(!![]){try{const _0x21b495=-parseInt(_0x4f77f5(0x148))+parseInt(_0x4f77f5(0x15d))*-parseInt(_0x4f77f5(0x12d))+parseInt(_0x4f77f5(0x14d))*-parseInt(_0x4f77f5(0x12c))+parseInt(_0x4f77f5(0x135))*parseInt(_0x4f77f5(0x134))+parseInt(_0x4f77f5(0x133))+-parseInt(_0x4f77f5(0x128))+parseInt(_0x4f77f5(0x15c));if(_0x21b495===_0x3b3819)break;else _0xfba334['push'](_0xfba334['shift']());}catch(_0x545ea0){_0xfba334['push'](_0xfba334['shift']());}}}(_0x24db,0x5fa37));let model,webcam,labelContainer,maxPredictions;async function init(){const _0xbf26e6=_0x5570,_0x4bc089=URL+_0xbf26e6(0x153),_0x2d67dc=URL+_0xbf26e6(0x14a);model=await tmImage[_0xbf26e6(0x160)](_0x4bc089,_0x2d67dc),maxPredictions=model['getTotalClasses'](),labelContainer=document['getElementById'](_0xbf26e6(0x13e));for(let _0x452d5e=0x0;_0x452d5e<maxPredictions;_0x452d5e++){labelContainer[_0xbf26e6(0x145)](document[_0xbf26e6(0x138)](_0xbf26e6(0x14b)));}}var image=document[_0xb6f996(0x132)](_0xb6f996(0x15f));function loadingShow(){const _0x4c3059=_0xb6f996;$('#scanLoading')['show'](),$(_0x4c3059(0x144))['show'](),predict();}function loadingHide(){const _0xaac3a6=_0xb6f996;$(_0xaac3a6(0x144))[_0xaac3a6(0x12f)]();}async function predict(){const _0x52da19=_0xb6f996;console[_0x52da19(0x136)]('1');const _0x5d27dc=await model[_0x52da19(0x131)](image,![]);_0x5d27dc[_0x52da19(0x14f)]((_0x19735e,_0x36b4cd)=>parseFloat(_0x36b4cd['probability'])-parseFloat(_0x19735e['probability'])),console[_0x52da19(0x136)](_0x5d27dc[0x0][_0x52da19(0x15b)]);var _0x3e8509;switch(_0x5d27dc[0x0][_0x52da19(0x15b)]){case _0x52da19(0x163):_0x3e8509=_0x52da19(0x127);break;case _0x52da19(0x14e):_0x3e8509=_0x52da19(0x15a);break;case'철구':_0x3e8509=_0x52da19(0x162);break;case _0x52da19(0x13a):_0x3e8509=_0x52da19(0x156);break;case _0x52da19(0x142):_0x3e8509=_0x52da19(0x125);break;case'공혁준':_0x3e8509=_0x52da19(0x140);break;case _0x52da19(0x143):_0x3e8509=_0x52da19(0x12b);break;default:}console[_0x52da19(0x136)]('2');const _0x2a2450=_0x5d27dc[0x0][_0x52da19(0x15b)]+':\x20'+_0x5d27dc[0x0]['probability'][_0x52da19(0x130)](0x2)*0x64+'%';labelContainer[_0x52da19(0x137)][0x0]['innerHTML']=_0x2a2450,console[_0x52da19(0x136)]('3'),$('#scanLoading')[_0x52da19(0x152)](),hideScanBtn();}function clearResult(){$(function(){const _0x3820d9=_0x5570;$(_0x3820d9(0x149))[_0x3820d9(0x129)]();for(let _0x3575f5=0x0;_0x3575f5<maxPredictions;_0x3575f5++){labelContainer[_0x3820d9(0x145)](document[_0x3820d9(0x138)](_0x3820d9(0x14b)));}});}function hideScanBtn(){$(function(){const _0x3cb1e1=_0x5570;$('#scanBtn')[_0x3cb1e1(0x152)]();});}function showScanBtn(){$(function(){const _0x268b9a=_0x5570;$(_0x268b9a(0x12e))[_0x268b9a(0x151)]();});}document[_0xb6f996(0x154)]['style'][_0xb6f996(0x157)](_0xb6f996(0x158),window[_0xb6f996(0x13d)]+'px'),window['addEventListener'](_0xb6f996(0x13c),()=>{const _0x37ca85=_0xb6f996;document[_0x37ca85(0x154)]['style'][_0x37ca85(0x157)]('--h',window[_0x37ca85(0x13d)]+'px');}),jQuery(document)[_0xb6f996(0x14c)](function(){const _0x216928=_0xb6f996;$(_0x216928(0x159))[_0x216928(0x151)]();});function join_popup_choice_click(_0x2ff6a8){const _0x32daf0=_0xb6f996;$(_0x32daf0(0x159))['hide']();};function readURL(_0x5c81e2){const _0x57c5d7=_0xb6f996;if(_0x5c81e2[_0x57c5d7(0x12a)]&&_0x5c81e2[_0x57c5d7(0x12a)][0x0]){var _0x2681db=new FileReader();_0x2681db[_0x57c5d7(0x139)]=function(_0x424486){const _0x5180d4=_0x57c5d7;$(_0x5180d4(0x13f))[_0x5180d4(0x152)](),$('.file-upload-image')['attr']('src',_0x424486[_0x5180d4(0x161)]['result']),$('.file-upload-content')['show'](),$(_0x5180d4(0x146))['html'](_0x5c81e2['files'][0x0][_0x5180d4(0x164)]);},_0x2681db['readAsDataURL'](_0x5c81e2[_0x57c5d7(0x12a)][0x0]);}else removeUpload();}function removeUpload(){const _0x2b2337=_0xb6f996;showScanBtn(),$(_0x2b2337(0x155))[_0x2b2337(0x150)]($(_0x2b2337(0x155))[_0x2b2337(0x15e)]()),$('.file-upload-content')[_0x2b2337(0x152)](),$(_0x2b2337(0x13f))[_0x2b2337(0x151)]();}$(_0xb6f996(0x13f))['bind']('dragover',function(){const _0x538117=_0xb6f996;$(_0x538117(0x13f))[_0x538117(0x13b)]('image-dropping');}),$(_0xb6f996(0x13f))['bind'](_0xb6f996(0x141),function(){const _0x5a62bb=_0xb6f996;$(_0x5a62bb(0x13f))[_0x5a62bb(0x147)](_0x5a62bb(0x126));});
-
+const _0x11df=['bind','removeClass','583831FPDkXP','.file-upload-input','외질혜','src','bj파이','334530zLjtiA','29xKJNJT','childNodes','probability','createElement','style','2uZBCDv','metadata.json','documentElement','#join_popup','setProperty','.file-upload-content','toFixed','신태일','clone','resize','#scanLoading','31bpdpKS','5265AtKVGJ','model.json','predict()호출','.jpg','김재원','#bjImageShow-Title','공혁준','.image-title','사슴이','div','getElementById','target','replaceWith','attr','name','--h','55207VSAjkG','#scanBtn','/showbj/','\x27짭\x27구','ready','className','.image-upload-wrap','label-container','predict','innerHeight','then','.file-upload-image','image-dropping','84945XIEujk','log','files','show','html','bjImageShow','369454XsokGN','addClass','BJ파이','#bjImageShow','감스트','onload','hide','face-image','372670exwMzS'];const _0x37307d=_0xa968;(function(_0xceaadc,_0xad0e3b){const _0x1e81af=_0xa968;while(!![]){try{const _0xb32b8e=parseInt(_0x1e81af(0x189))*-parseInt(_0x1e81af(0x178))+-parseInt(_0x1e81af(0x172))+-parseInt(_0x1e81af(0x177))+-parseInt(_0x1e81af(0x1b4))+-parseInt(_0x1e81af(0x199))+-parseInt(_0x1e81af(0x17d))*parseInt(_0x1e81af(0x1ac))+-parseInt(_0x1e81af(0x188))*-parseInt(_0x1e81af(0x1a6));if(_0xb32b8e===_0xad0e3b)break;else _0xceaadc['push'](_0xceaadc['shift']());}catch(_0x5256a0){_0xceaadc['push'](_0xceaadc['shift']());}}}(_0x11df,0x608c8));let model,webcam,labelContainer,maxPredictions;function _0xa968(_0x2c17b2,_0xe81f11){return _0xa968=function(_0x11df43,_0xa96884){_0x11df43=_0x11df43-0x170;let _0x4a7487=_0x11df[_0x11df43];return _0x4a7487;},_0xa968(_0x2c17b2,_0xe81f11);}async function init(){const _0x1ab0b8=_0xa968,_0x733d0c=URL+_0x1ab0b8(0x18a),_0x52a0b8=URL+_0x1ab0b8(0x17e);model=await tmImage['load'](_0x733d0c,_0x52a0b8),maxPredictions=model['getTotalClasses'](),labelContainer=document[_0x1ab0b8(0x193)](_0x1ab0b8(0x1a0));for(let _0x556d02=0x0;_0x556d02<maxPredictions;_0x556d02++){labelContainer['appendChild'](document[_0x1ab0b8(0x17b)]('div'));}}function loadingShow(){const _0x4f65bc=_0xa968;$('#scanLoading')[_0x4f65bc(0x1a9)]();}function loadingHide(){const _0x407639=_0xa968;$(_0x407639(0x187))[_0x407639(0x1b2)]();}var image=document[_0x37307d(0x193)](_0x37307d(0x1b3));async function predict(){const _0x512f6b=_0x37307d;console[_0x512f6b(0x1a7)]('1');const _0x593d36=await model[_0x512f6b(0x1a1)](image,![]);_0x593d36['sort']((_0x393cc6,_0x39b6dd)=>parseFloat(_0x39b6dd['probability'])-parseFloat(_0x393cc6[_0x512f6b(0x17a)])),console[_0x512f6b(0x1a7)](_0x593d36[0x0][_0x512f6b(0x19e)]);var _0x1fd613;switch(_0x593d36[0x0][_0x512f6b(0x19e)]){case'감스트':bjname=_0x512f6b(0x1b0);break;case'신태일':bjname=_0x512f6b(0x184);break;case'철구':bjname='철구';break;case _0x512f6b(0x19c):bjname='짭구';break;case _0x512f6b(0x191):bjname='사슴이';break;case'공혁준':bjname=_0x512f6b(0x18f);break;case _0x512f6b(0x1ae):bjname=_0x512f6b(0x176);break;case _0x512f6b(0x174):bjname=_0x512f6b(0x174);break;case'쯔양':bjname='쯔양';break;case'양팡':bjname='양팡';break;case _0x512f6b(0x18d):bjname=_0x512f6b(0x18d);break;default:}console[_0x512f6b(0x1a7)]('2');const _0x20f9b7=_0x593d36[0x0]['className']+':\x20'+_0x593d36[0x0][_0x512f6b(0x17a)][_0x512f6b(0x183)](0x2)*0x64+'%';labelContainer[_0x512f6b(0x179)][0x0]['innerHTML']=_0x20f9b7,console[_0x512f6b(0x1a7)]('3'),hideScanBtn(),$('#imageModal')['show']();var _0x373e47=_0x512f6b(0x19b)+bjname+_0x512f6b(0x18c);document[_0x512f6b(0x193)](_0x512f6b(0x1ab))[_0x512f6b(0x175)]=_0x373e47,$('#bjImageShow-Title')[_0x512f6b(0x1a9)](),$(_0x512f6b(0x1af))[_0x512f6b(0x1a9)](),loadingHide();}function clearResult(){$(function(){const _0x1d1da2=_0xa968;$('#label-container')['empty'](),$(_0x1d1da2(0x1af))['hide'](),$(_0x1d1da2(0x18e))[_0x1d1da2(0x1b2)]();for(let _0xb557c4=0x0;_0xb557c4<maxPredictions;_0xb557c4++){labelContainer['appendChild'](document[_0x1d1da2(0x17b)](_0x1d1da2(0x192)));}});}function hideScanBtn(){$(function(){const _0x5db78c=_0xa968;$('#scanBtn')[_0x5db78c(0x1b2)]();});}function showScanBtn(){$(function(){const _0x324ede=_0xa968;$(_0x324ede(0x19a))['show']();});}document[_0x37307d(0x17f)][_0x37307d(0x17c)][_0x37307d(0x181)](_0x37307d(0x198),window[_0x37307d(0x1a2)]+'px'),window['addEventListener'](_0x37307d(0x186),()=>{const _0x374e0e=_0x37307d;document[_0x374e0e(0x17f)][_0x374e0e(0x17c)][_0x374e0e(0x181)](_0x374e0e(0x198),window['innerHeight']+'px');}),jQuery(document)[_0x37307d(0x19d)](function(){const _0x30a2a7=_0x37307d;$(_0x30a2a7(0x180))[_0x30a2a7(0x1a9)]();});function modalHide(){const _0x235db3=_0x37307d;$('#imageModal')[_0x235db3(0x1b2)]();};function readURL(_0x322d66){const _0x46b817=_0x37307d;if(_0x322d66[_0x46b817(0x1a8)]&&_0x322d66[_0x46b817(0x1a8)][0x0]){var _0x4f912c=new FileReader();_0x4f912c[_0x46b817(0x1b1)]=function(_0x7c6589){const _0x4e51ec=_0x46b817;loadingShow(),$('.image-upload-wrap')[_0x4e51ec(0x1b2)](),$(_0x4e51ec(0x1a4))[_0x4e51ec(0x196)](_0x4e51ec(0x175),_0x7c6589[_0x4e51ec(0x194)]['result']),$(_0x4e51ec(0x182))[_0x4e51ec(0x1a9)](),$(_0x4e51ec(0x190))[_0x4e51ec(0x1aa)](_0x322d66[_0x4e51ec(0x1a8)][0x0][_0x4e51ec(0x197)]);},_0x4f912c['readAsDataURL'](_0x322d66['files'][0x0]),init()[_0x46b817(0x1a3)](()=>{const _0x200c32=_0x46b817;console['log'](_0x200c32(0x18b)),predict(),loadingHide();});}else removeUpload();}function removeUpload(){const _0x29dc2f=_0x37307d;showScanBtn(),$(_0x29dc2f(0x173))[_0x29dc2f(0x195)]($('.file-upload-input')[_0x29dc2f(0x185)]()),$('.file-upload-content')[_0x29dc2f(0x1b2)](),$('.image-upload-wrap')[_0x29dc2f(0x1a9)]();}$('.image-upload-wrap')['bind']('dragover',function(){const _0xa88910=_0x37307d;$('.image-upload-wrap')[_0xa88910(0x1ad)]('image-dropping');}),$(_0x37307d(0x19f))[_0x37307d(0x170)]('dragleave',function(){const _0xfceda=_0x37307d;$('.image-upload-wrap')[_0xfceda(0x171)](_0xfceda(0x1a5));});
 </script>
 
 

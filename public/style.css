@@ -18,6 +18,8 @@ body {
   width: 320px;
   padding-top: 40px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .file-upload-btn {
@@ -201,39 +203,21 @@ body {
   color: #4949493f;
 }
 
-.modal_wrap{
-  display: none;
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  top:50%;
-  left: 50%;
-  margin: -250px 0 0 -250px;
-  background:#eee;
+.imageModal {
+  position: relative;
   z-index: 2;
+  text-align: center;
 }
-.black_bg{
-  display: none;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color:rgba(0, 0,0, 0.5);
-  top:0;
-  left: 0;
-  z-index: 1;
+
+.bjImageShow {
+  max-width: 100%;
+  max-height: 100%;
 }
-.modal_close{
-  width: 26px;
-  height: 26px;
-  position: absolute;
-  top: -30px;
-  right: 0;
+
+.modal-body {
+  font-family: 'Jua';
 }
-.modal_close> a{
-  display: block;
-  width: 100%;
-  height: 100%;
-  background:url(https://img.icons8.com/metro/26/000000/close-window.png);
-  text-indent: -9999px;
+
+.file-upload-content {
+  font-family: 'Jua';
 }
