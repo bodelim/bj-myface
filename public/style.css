@@ -166,14 +166,18 @@ body {
 .discription {
  width: 100%;
  height: 100%;
- margin-top: 40%;
+ margin-top: 25%;
  font-family: 'Jua';
  font-size: 115%;
  text-align: center;
 }
 
 #scanLoading {
-  margin-left: 50%;
   margin-top: 10%;
   position: relative;
+}
+
+#label-container {
+  font-family: 'Jua';
+  margin-top: 10px;
 }
