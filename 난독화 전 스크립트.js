@@ -5,7 +5,7 @@
             
  
 
-            const URL = 'https://teachablemachine.withgoogle.com/models/AD5T1yuNt/';
+
 
 let model, webcam, labelContainer, maxPredictions;
 
