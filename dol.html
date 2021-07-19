@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="당신의 패션센스는?" />
+    <meta property="og:description" content="당신의 패션센스를 확인해보세요!"
+    />
+
+    <!-- 폰트 -->
+        <!-- Sunflower -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap" rel="stylesheet">
+
+        <!-- Jua -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <!-- 폰트 -->
+
+<!-- 부트스트랩 -->
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>패션센스</title>
+<!-- 부트스트랩 -->
+
+<!-- addthis -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60eef605cab4b0b7"></script>
+<!-- addthis -->
+
+<!-- adsence -->
+<script data-ad-client="ca-pub-5033077550455059" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- adsence -->
+    </head>
+    <body>
+
+        <!-- 네비게이션바 -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-distance">
+          <a class="navbar-brand" href="https://animalface.site/">당신의 패션센스는?</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" id="yotube-top-link" href="">도리귀여웡</a>
+                </li>
+              </ul>
+          </div>
+          </nav>
+        <!-- 네비게이션바 -->
+        
+        <!-- 모델 -->
+
+<!-- 이미지업로더 -->
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="container file-upload">
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>이곳에 사진을 올려주세요</h3>
+      <h4 class="subdrag-text">(되도록이면 상의와 하의가 같이 나오도록 올려주세요)</h4>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+    <div id="loading" class="animated bounce">
+      <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <p class="result-message"></p>
+    <div class="resultP" id="label-container"></div>
+    
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox_3xjl"></div>
+            
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">사진 지우기</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- 이미지업로더 -->
+
+<!-- 부트스트랩js -->
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- 부트스트랩js -->
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+<!-- 자바스크립트 -->
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+      $('.addthis_inline_share_toolbox_3xjl').hide()
+      $('#loading').show();
+      $('.result-message').hide();
+      $('.resultP').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+    init().then(()=>{
+        console.log("이미지 처리중...");
+        predict();
+        $('#loading').hide();
+        $('.resultP').show();
+        $('.result-message').show();
+        $('.addthis_inline_share_toolbox_3xjl').show();
+    });
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+      $('.image-upload-wrap').addClass('image-dropping');
+});
+   $('.image-upload-wrap').bind('dragleave', function () {
+      $('.image-upload-wrap').removeClass('image-dropping');
+});
+
+</script>
+<!-- 자바스크립트 -->
+
+<script type="text/javascript">
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/4uITxJnLp/";
+
+    let model, labelContainer, maxPredictions;
+
+    // Load the image model
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    // run the image through the image model
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        var image = document.getElementById("face-image")
+        const prediction = await model.predict(image, false);
+        prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+        console.log(prediction[0].className);
+        var resultMessege;
+        switch(prediction[0].className) {
+  case "잘입음":
+    resultMessege = "패션센스 굳 어딜 봐도 흠잡을곳이 없는 패션이군요!"
+    break;
+  case "평균":
+    resultMessege = "평범하고 멋있는 패션 당신은 멋쟁이!"
+    break;
+  case "평균이하":
+    resultMessege = "나쁘지 않은 패션센스네요<br>하지만 조금만 더 꾸미는게 좋을것같아요~"
+    break;
+  case "못입음":
+    resultMessege = "패션센스 꽝!<br>당신은 더 멋있어질수 있어요 같이 노력해봐요:D"
+    break;
+  case "이상함":
+    resultMessege = "어... 그런 옷은 어디서 구하신거죠..?"
+    break;
+  default:
+    // code block
+}
+$('.result-message').html(resultMessege);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+              Math.round(prediction[i].className + ": " + prediction[i].probability.toFixed(2) * 100) + "%";
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+    }
+</script>
+<!-- 모델 -->
+
+    </body>
+    <!-- Copyright (c) 2021 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+</html>

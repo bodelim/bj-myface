@@ -85,6 +85,27 @@
                 case "김재원":
                     bjname = "김재원";
                     break;
+                case "김블루":
+                    bjname = "김블루";
+                    break;
+                case "릴카":
+                    bjname = "릴카";
+                    break;
+                case "떵개":
+                    bjname = "떵개";
+                    break;
+                case "잇섭":
+                    bjname = "잇섭";
+                    break;
+                case "눈쟁이":
+                    bjname = "눈쟁이";
+                    break;
+                case "진자림":
+                    bjname = "진자림";
+                    break;
+                case "선바":
+                    bjname = "선바";
+                    break;
               default:
                 // code block
             }
